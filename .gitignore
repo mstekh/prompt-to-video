@@ -1,0 +1,15 @@
+work/
+audio/
+music/
+out/
+clips.json
+shots.json
+groups.json
+*.mp4
+*.wav
+*.mp3
+__pycache__/
+.env
+*.key
+kaggle.json
+access_token

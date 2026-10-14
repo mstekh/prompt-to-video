@@ -1,0 +1,121 @@
+<title>Розкадровка «Гроші»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Монтажний лист: шкала часу зверху, далі кадри рядками — таймкод | текст озвучки | стрічка кліпів */
+:root {
+  --paper: #f3f2ee;
+  --sheet: #fbfaf7;
+  --ink: #1d2126;
+  --muted: #5d636b;
+  --rule: #d9d6cd;
+  --gold: #9a6a12;
+  --gold-soft: #efe2c4;
+  --seg-a: #2f3a45;
+  --seg-b: #4a5866;
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --body: "Golos Text", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", Consolas, ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121417; --sheet: #191c20; --ink: #e8e6e1; --muted: #9aa1a9; --rule: #2c3036;
+    --gold: #d9a441; --gold-soft: #33290f; --seg-a: #3a4653; --seg-b: #556474; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121417; --sheet: #191c20; --ink: #e8e6e1; --muted: #9aa1a9; --rule: #2c3036;
+  --gold: #d9a441; --gold-soft: #33290f; --seg-a: #3a4653; --seg-b: #556474; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 56px; display: grid; gap: 28px; }
+a { color: var(--gold); text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+.top { display: grid; gap: 14px; }
+.kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 6vw, 52px); line-height: 1.02; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--gold); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0; padding: 0; list-style: none; font-size: 14px; color: var(--muted); }
+.facts b { color: var(--ink); font-weight: 600; }
+
+.timeline { display: grid; gap: 6px; }
+.bar { display: flex; height: 40px; border-radius: 6px; overflow: hidden; }
+.seg { display: flex; align-items: center; justify-content: center; text-decoration: none; color: #fff;
+  font-family: var(--mono); font-size: 12px; background: var(--seg-a); border-right: 2px solid var(--paper); min-width: 0; }
+.seg:nth-child(even) { background: var(--seg-b); }
+.seg:hover { background: var(--gold); }
+.scale { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.legend div { background: var(--sheet); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 14px; min-width: 0; }
+.legend h2 { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; font-weight: 600; }
+.legend p { margin: 0; font-size: 14px; }
+
+.shots { display: grid; gap: 0; border-top: 2px solid var(--ink); }
+.shot { display: grid; grid-template-columns: 150px 1fr; gap: 18px; padding-block: 18px; border-bottom: 1px solid var(--rule); scroll-margin-top: 16px; }
+.shot:target { background: var(--gold-soft); }
+.shot-head { display: grid; align-content: start; gap: 2px; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.num { font-family: var(--display); font-size: 34px; font-weight: 500; line-height: 1; color: var(--gold); }
+.time { font-size: 13px; }
+.dur { font-size: 12px; color: var(--muted); }
+.shot-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 20px; min-width: 0; }
+.copy { min-width: 0; display: grid; align-content: start; gap: 6px; }
+.label { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin: 0;
+  display: inline-block; justify-self: start; background: var(--ink); color: var(--sheet); padding: 3px 8px; border-radius: 4px; }
+.vo { margin: 0; font-size: 16px; max-width: 60ch; }
+.note { margin: 0; font-size: 13px; color: var(--muted); }
+.strip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; min-width: 0; scrollbar-width: thin; }
+.frame { margin: 0; flex: 0 0 120px; display: grid; gap: 4px; }
+.frame img { width: 120px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 4px; display: block; max-width: 100%; background: var(--rule); }
+.frame figcaption { display: grid; gap: 2px; font-size: 11px; line-height: 1.3; }
+.frame .desc { color: var(--ink); }
+.frame .meta { color: var(--muted); font-family: var(--mono); font-size: 10px; }
+
+footer { display: grid; gap: 6px; font-size: 13px; color: var(--muted); }
+footer p { margin: 0; max-width: 90ch; }
+
+@media (max-width: 760px) {
+  .shot { grid-template-columns: 1fr; gap: 10px; }
+  .shot-head { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: 12px; }
+  .num { font-size: 26px; }
+  .shot-body { grid-template-columns: 1fr; }
+  .seg span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <p class="kicker">Розкадровка · версія 4 · 13.10.2026</p>
+    <h1>Гроші: <em>чим</em> забезпечена валюта</h1>
+    <ul class="facts">
+      <li><b>{{TOTAL}} с</b>, 1080×1920, 30 кадр/с</li>
+      <li>голос <b>Ostap</b>, +18 %</li>
+      <li>музика <b>ACE-Step</b> (затверджено)</li>
+      <li><b>{{NCLIPS}}</b> кліпів з <b>{{NSEGS}}</b> оглянутих сцен</li>
+      <li>гучність <b>{{LUFS}} LUFS</b>, пік {{PEAK}} dBFS</li>
+    </ul>
+  </header>
+
+  <div class="timeline" aria-label="Шкала часу ролика">
+    <div class="bar">{{BARS}}</div>
+    <div class="scale"><span>0:00</span><span>0:30</span><span>1:00</span><span>1:30</span></div>
+  </div>
+
+  <div class="legend">
+    <div><h2>Футаж</h2><p>Pixabay, ліцензія Pixabay (комерційно можна). Кожен кадр нарізано на сцени по 3 с.</p></div>
+    <div><h2>Відбір</h2><p>Qwen2.5-VL на Kaggle: відповідність темі й якість (0–5), без тексту, логотипів і рублів.</p></div>
+    <div><h2>Рендер</h2><p>Kaggle: монтаж, субтитри за межами слів, музика з приглушенням під голос.</p></div>
+    <div><h2>Зауваження перевірки</h2><p>{{PROBLEMS}}</p></div>
+  </div>
+
+  <div class="shots">{{ROWS}}</div>
+
+  <footer>
+    <p>Під кожною мініатюрою — опис від моделі, її оцінка (відповідність/якість) і посилання на джерело. Кадр 6 доповнено кліпами з купюрами з інших кадрів: прямого пошуку для нього Pixabay не знайшов.</p>
+    <p>Згенеровано скриптом make_storyboard.py з даних конвеєра prompt-to-video.</p>
+  </footer>
+</div>

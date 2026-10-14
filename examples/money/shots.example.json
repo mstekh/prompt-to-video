@@ -1,0 +1,144 @@
+{
+ "voice": "uk-UA-OstapNeural",
+ "size": [
+  1080,
+  1920
+ ],
+ "fps": 30,
+ "shots": [
+  {
+   "id": "S1",
+   "start": 0.0,
+   "dur": 7.851,
+   "kind": "title",
+   "text": "Долар, євро і гривня нічим не забезпечені: папір не обмінюють на золото. Чому тоді ці валюти приймають у всьому світі?",
+   "label": "ГРОШІ",
+   "sublabel": "Що за ними стоїть?",
+   "subject_en": "money: banknotes and coins close-up (NOT Russian rubles)"
+  },
+  {
+   "id": "S2",
+   "start": 7.851,
+   "dur": 12.025,
+   "kind": "clips",
+   "text": "Раніше гроші були металом або розпискою на метал. Класичний золотий стандарт тримала Британія з тисяча вісімсот двадцять першого, а світ — з тисяча вісімсот сімдесятого до тисяча дев'ятсот чотирнадцятого.",
+   "label": "ЗОЛОТИЙ СТАНДАРТ",
+   "subject_en": "gold bars, gold coins, bank vault, old money",
+   "queries": [
+    "gold coins closeup",
+    "gold bars bank vault",
+    "old banknote printing"
+   ],
+   "n_clips": 3
+  },
+  {
+   "id": "S3",
+   "start": 19.876,
+   "dur": 8.868,
+   "kind": "clips",
+   "text": "Від золота відходили через війни та Велику депресію. У тисяча дев'ятсот тридцять третьому Сполучені Штати заборонили громадянам володіти золотом приватно.",
+   "label": "ВІДХІД ВІД ЗОЛОТА",
+   "subject_en": "1930s / vintage archival look, old city, gold",
+   "queries": [
+    "Bretton Woods conference 1944",
+    "gold bars vault",
+    "1940s conference delegates"
+   ],
+   "n_clips": 3
+  },
+  {
+   "id": "S4",
+   "start": 28.744,
+   "dur": 10.849,
+   "kind": "clips",
+   "text": "У тисяча дев'ятсот сорок четвертому золото лишили за доларом — тридцять п'ять доларів за унцію. Решту валют прив'язали до долара; обмін доларів на золото — лише для центральних банків.",
+   "label": "БРЕТТОН-ВУДС · 1944",
+   "subject_en": "US dollar and gold bullion, official meeting",
+   "queries": [
+    "Nixon 1971 address",
+    "dollar bills",
+    "Federal Reserve building"
+   ],
+   "n_clips": 3
+  },
+  {
+   "id": "S5",
+   "start": 39.593,
+   "dur": 10.224,
+   "kind": "clips",
+   "text": "П'ятнадцятого серпня тисяча дев'ятсот сімдесят першого Сполучені Штати через війну у В'єтнамі й відтік золота припинили обмін доларів на золото. Так постали фіатні гроші.",
+   "label": "1971 · КІНЕЦЬ ОБМІНУ",
+   "subject_en": "US dollar bills, money printing, cash",
+   "queries": [
+    "dollar bill closeup",
+    "banknote printing press",
+    "central bank building"
+   ],
+   "n_clips": 3
+  },
+  {
+   "id": "S6",
+   "start": 49.817,
+   "dur": 11.029,
+   "kind": "clips",
+   "text": "«Фіат» означає «хай буде». Банкнота — зобов'язання центрального банку, але обміняти її можна лише на інші гроші. Закон вимагає платити податки й борги саме нею.",
+   "label": "ЩО ТАКЕ ФІАТ",
+   "subject_en": "signing laws or documents, banknotes, central bank",
+   "queries": [
+    "tax collector",
+    "paying taxes",
+    "tax office"
+   ],
+   "n_clips": 3
+  },
+  {
+   "id": "S7",
+   "start": 60.846,
+   "dur": 10.913,
+   "kind": "clips",
+   "text": "Центральний банк задає облікову ставку й ціль інфляції близько двох відсотків. У розвинених країнах понад дев'яносто відсотків грошей постає з кредитів банків: гроші — це борг.",
+   "label": "СТАВКА Й КРЕДИТИ",
+   "subject_en": "bank, credit card payment, financial charts",
+   "queries": [
+    "bank loan",
+    "ATM cash withdrawal",
+    "bank branch customers"
+   ],
+   "n_clips": 3
+  },
+  {
+   "id": "S8",
+   "start": 71.759,
+   "dur": 14.239,
+   "kind": "clips",
+   "text": "Зникає довіра — приходить гіперінфляція. Німеччина тисяча дев'ятсот двадцять третього. Україна тисяча дев'ятсот дев'яносто третього: ціни за рік зросли в сто разів. Зімбабве — купюра на сто трильйонів доларів.",
+   "label": "ГІПЕРІНФЛЯЦІЯ",
+   "subject_en": "inflation: piles of banknotes, rising prices (NOT Russian rubles)",
+   "queries": [
+    "hyperinflation banknotes",
+    "karbovanets banknotes",
+    "Weimar inflation 1923 money"
+   ],
+   "n_clips": 3
+  },
+  {
+   "id": "S9",
+   "start": 85.998,
+   "dur": 10.002,
+   "kind": "clips",
+   "text": "Отже, валюта тримається на законі, податках, політиці центрального банку і довірі. Золото в резервах — лише страховка, а не забезпечення кожної банкноти.",
+   "label": "ЗАКОН І ДОВІРА",
+   "subject_en": "city at night, Earth from space, stock exchange",
+   "queries": [
+    "Earth at night city lights",
+    "stock exchange trading floor",
+    "contactless payment smartphone"
+   ],
+   "n_clips": 3
+  }
+ ],
+ "lead": 0.05,
+ "pitch": "-4Hz",
+ "music": "music/ace_money_tense.mp3",
+ "music_credit": "Music: generated with ACE-Step v1 3.5B (Apache-2.0), tense documentary underscore"
+}

@@ -1,0 +1,185 @@
+[
+ {
+  "id": "S1a",
+  "shot": "S1",
+  "q": "One dollar silver certificate 1957",
+  "subj": "old US one dollar banknote",
+  "prompt": "Slow cinematic push-in over an old US one dollar banknote lying on a dark wooden table, soft light sweeping across the paper, dust particles in the air. Keep the banknote design stable, no new text, no morphing."
+ },
+ {
+  "id": "S1b",
+  "shot": "S1",
+  "q": "gold bars United States Mint",
+  "subj": "stack of gold bars",
+  "prompt": "Slow dolly move along a stack of gold bars in a dim vault, warm reflections gliding over the metal. Keep the bars stable, no text, no morphing."
+ },
+ {
+  "id": "S2c",
+  "shot": "S2",
+  "q": "Royal Exchange London 1844",
+  "subj": "19th-century London exchange or bank interior",
+  "prompt": "The 19th-century engraving comes alive: merchants move and gesture in the hall, subtle camera push-in, archival look. Keep faces and architecture stable, no morphing, no text.",
+  "source": {
+   "title": "File:Gezicht op de Royal Exchange en Bank in Londen Royal Exchange and Bank (titel op object) London (serietitel op object), RP-F-F20141.jpg",
+   "license": "CC0",
+   "author": "Rijksmuseum",
+   "page": "https://commons.wikimedia.org/wiki/File:Gezicht_op_de_Royal_Exchange_en_Bank_in_Londen_Royal_Exchange_and_Bank_(titel_op_object)_London_(serietitel_op_object),_RP-F-F20141.jpg"
+  }
+ },
+ {
+  "id": "S3a",
+  "shot": "S3",
+  "q": "bank run 1930s",
+  "subj": "crowd outside a bank during the Great Depression",
+  "prompt": "Archival black-and-white scene: a worried crowd gathers outside a bank, people shift and look around, slow push-in. Keep faces and buildings stable, no morphing, no text.",
+  "source": {
+   "title": "File:Chicago (ILL), downtown, Oriental Theatre,1926 \" Billy Elliot \" (4824866278).jpg",
+   "license": "CC BY 2.0",
+   "author": "(vincent desjardins) from Paris, France",
+   "page": "https://commons.wikimedia.org/wiki/File:Chicago_(ILL),_downtown,_Oriental_Theatre,1926_%22_Billy_Elliot_%22_(4824866278).jpg"
+  }
+ },
+ {
+  "id": "S3b",
+  "shot": "S3",
+  "q": "Great Depression unemployed men 1930s",
+  "subj": "1930s breadline or unemployed people",
+  "prompt": "Archival 1930s photograph comes alive: people in a line move slightly, coats flutter in the wind, slow camera drift. Keep faces stable, no morphing, no text.",
+  "source": {
+   "title": "File:Unemployed men queued outside a depression soup kitchen opened in Chicago by Al Capone, 02-1931 - NARA - 541927.jpg",
+   "license": "Public domain",
+   "author": "Unknown author Unknown author or not provided",
+   "page": "https://commons.wikimedia.org/wiki/File:Unemployed_men_queued_outside_a_depression_soup_kitchen_opened_in_Chicago_by_Al_Capone,_02-1931_-_NARA_-_541927.jpg"
+  }
+ },
+ {
+  "id": "S3c",
+  "shot": "S3",
+  "q": "gold coins 1933 United States double eagle",
+  "subj": "US gold coins",
+  "prompt": "Gold coins slowly slide and stack on a table under a desk lamp, gentle reflections, slow push-in. Keep coins stable, no morphing, no text."
+ },
+ {
+  "id": "S4a",
+  "shot": "S4",
+  "q": "Bretton Woods Conference 1944",
+  "subj": "1944 Bretton Woods conference delegates",
+  "prompt": "Archival 1944 conference photo comes alive: delegates around a long table shift papers and turn heads slightly, slow push-in, black and white. Keep faces stable, no morphing, no text."
+ },
+ {
+  "id": "S4b",
+  "shot": "S4",
+  "q": "Mount Washington Hotel Bretton Woods",
+  "subj": "Mount Washington Hotel, Bretton Woods",
+  "prompt": "Slow aerial-like drift toward the grand Mount Washington Hotel with mountains behind, clouds moving, soft light. Keep the building stable, no morphing, no text."
+ },
+ {
+  "id": "S4c",
+  "shot": "S4",
+  "q": "gold bullion Federal Reserve Bank of New York vault",
+  "subj": "gold bullion in a central bank vault",
+  "prompt": "Slow camera glide past shelves of gold bullion in a central bank vault, warm reflections. Keep the bars stable, no morphing, no text."
+ },
+ {
+  "id": "S5a",
+  "shot": "S5",
+  "q": "Vietnam War helicopters UH-1 1966",
+  "subj": "Vietnam War helicopters",
+  "prompt": "Archival scene: military helicopters fly low over the jungle, rotors spinning, slow pan. Keep shapes stable, no morphing, no text."
+ },
+ {
+  "id": "S5b",
+  "shot": "S5",
+  "q": "United States Treasury Building Washington",
+  "subj": "US Treasury building",
+  "prompt": "Slow push-in toward the US Treasury building, flag moving in the wind, clouds drifting. Keep the architecture stable, no morphing, no text."
+ },
+ {
+  "id": "S5c",
+  "shot": "S5",
+  "q": "Bureau of Engraving and Printing currency printing press",
+  "subj": "currency printing press with sheets of dollar bills",
+  "prompt": "Sheets of banknotes run through a printing press, rollers turning, steady industrial motion, slow push-in. Keep banknote designs stable, no morphing, no new text."
+ },
+ {
+  "id": "S6a",
+  "shot": "S6",
+  "q": "Federal Reserve note engraving plate",
+  "subj": "banknote engraving or printing plate",
+  "prompt": "Extreme close-up of a banknote engraving, light slowly sweeping across the fine lines, shallow depth of field. Keep the design stable, no morphing, no new text."
+ },
+ {
+  "id": "S6b",
+  "shot": "S6",
+  "q": "Marinus van Reymerswaele tax collectors",
+  "subj": "Renaissance painting of tax collectors",
+  "prompt": "The old painting comes alive: two tax collectors write in a ledger and count coins, subtle hand movements, slow push-in. Keep faces stable, no morphing, no text."
+ },
+ {
+  "id": "S6c",
+  "shot": "S6",
+  "q": "Eccles Building Federal Reserve Washington",
+  "subj": "central bank building",
+  "prompt": "Slow push-in toward a central bank building, trees swaying, clouds moving across the sky. Keep the architecture stable, no morphing, no text.",
+  "source": {
+   "title": "File:2025 construction Eccles Federal Reserve Building Washington DC 2025-02-10 12-05-42.jpg",
+   "license": "CC BY 4.0",
+   "author": "G. Edward Johnson",
+   "page": "https://commons.wikimedia.org/wiki/File:2025_construction_Eccles_Federal_Reserve_Building_Washington_DC_2025-02-10_12-05-42.jpg"
+  }
+ },
+ {
+  "id": "S7a",
+  "shot": "S7",
+  "q": "bank interior 1920s",
+  "subj": "bank tellers serving customers",
+  "prompt": "Archival bank hall comes alive: tellers count money and customers step to the counter, slow camera drift. Keep faces stable, no morphing, no text.",
+  "source": {
+   "title": "File:Bank of Australasia, Ipswich, Queensland QUT-6737-1.jpg",
+   "license": "CC0",
+   "author": "Jack Bain",
+   "page": "https://commons.wikimedia.org/wiki/File:Bank_of_Australasia,_Ipswich,_Queensland_QUT-6737-1.jpg"
+  }
+ },
+ {
+  "id": "S7b",
+  "shot": "S7",
+  "q": "bank vault door",
+  "subj": "massive bank vault door",
+  "prompt": "A massive round bank vault door slowly swings open, light spilling inside, slow push-in. Keep the door stable, no morphing, no text."
+ },
+ {
+  "id": "S8b",
+  "shot": "S8",
+  "q": "Ukraine karbovanets 1993 banknote",
+  "subj": "Ukrainian karbovanets banknote of the 1990s",
+  "prompt": "A 1990s Ukrainian karbovanets banknote on a table, more notes keep falling and piling up, slow push-in, warm light, runaway inflation. Keep banknote designs stable, no new text, no morphing."
+ },
+ {
+  "id": "S8c",
+  "shot": "S8",
+  "q": "Zimbabwe $100 trillion 2009 Obverse",
+  "subj": "Zimbabwe 100 trillion dollar banknote",
+  "prompt": "A Zimbabwe 100 trillion dollar banknote flutters slowly in the air and lands on a pile of other notes, slow camera move. Keep the design stable, no new text, no morphing."
+ },
+ {
+  "id": "S9b",
+  "shot": "S9",
+  "q": "gold bars stack",
+  "subj": "gold reserves in a central bank",
+  "prompt": "Slow glide over neatly stacked gold reserve bars, cool vault light, calm motion. Keep bars stable, no morphing, no text.",
+  "source": {
+   "title": "File:Gold bullion bars.jpg",
+   "license": "CC0",
+   "author": "Stevebidmead",
+   "page": "https://commons.wikimedia.org/wiki/File:Gold_bullion_bars.jpg"
+  }
+ },
+ {
+  "id": "S9c",
+  "shot": "S9",
+  "q": "handshake",
+  "subj": "two people shaking hands",
+  "prompt": "Close-up of two hands meeting in a firm handshake, slow motion, soft warm light, shallow depth of field. Keep hands natural, no morphing, no text."
+ }
+]
