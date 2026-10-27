@@ -18,7 +18,7 @@
 |---|---|---|---|
 | GitHub | клон, документи | github.com | так |
 | Claude Code (підписка) | оркестратор | claude.ai | так |
-| **Kaggle** | безкоштовний GPU 2×T4, ~30 год/тиждень | kaggle.com → Settings → **Phone verification** (інакше немає GPU й інтернету в ядрах) → API → Create New Token | так (режим 1) |
+| **Kaggle** | безкоштовний GPU 2×T4, ~30 год/тиждень | kaggle.com → Settings → **Phone verification** (інакше немає GPU й інтернету в ядрах) (ключ API не обов'язковий: `kaggle auth login` у браузері) | так (режим 1) |
 | Pixabay | стокові відео й музика (запасний футаж) | pixabay.com/api/docs → ключ у рядку `key (required)` | ні |
 | NVIDIA Build | безкоштовна модель для агента Hermes (≈40 запитів/хв) | build.nvidia.com | ні |
 | Cursor | сильні моделі для сценарію й фактчеку | cursor.com | ні (можна й сам Claude) |
@@ -31,7 +31,7 @@ Pexels API на жовтень 2026 не видавав нові ключі (в�
 [Environment]::SetEnvironmentVariable('PIXABAY_API_KEY','…','User')
 [Environment]::SetEnvironmentVariable('KAGGLE_USERNAME','ваш_логін','User')   # якщо не використовуєте kaggle.json
 ```
-Kaggle-токен: файл `~/.kaggle/kaggle.json` (`{"username":"…","key":"…"}`) або `~/.kaggle/access_token` для нового формату CLI. Перевірка: `kaggle kernels list --mine`.
+**Без ключа:** `kaggle auth login` (Kaggle CLI ≥ 2.2) — вхід через браузер, людина лише входить у свій акаунт; файл-ключ не потрібен. Або Kaggle-токен: файл `~/.kaggle/kaggle.json` (`{"username":"…","key":"…"}`) або `~/.kaggle/access_token` для нового формату CLI. Перевірка: `kaggle kernels list --mine`.
 
 ## Програми (Windows: winget, Linux/macOS: пакетний менеджер)
 ```
