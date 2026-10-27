@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Відео з одного промпта</title>
+<meta name="description" content="Покрокова інструкція: як налаштувати Claude Code і безкоштовний GPU Kaggle, щоб з одного промпта робити вертикальні відео з озвучкою, AI-кліпами й музикою.">
+<style>
+:root{
+  --bg:#f7f6f2;--card:#ffffff;--text:#1d1d1b;--text-2:#5b5a55;--border:#e3e0d8;
+  --accent:#1f5fd6;--accent-soft:#e8effc;--ok:#1d7a46;--ok-soft:#e5f4ea;--warn:#8a5a00;--warn-soft:#fbf1dc;
+  --code-bg:#f1efe9;--human:#7a3fb8;--human-soft:#f1e9fa;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141413;--card:#1e1e1c;--text:#ecebe6;--text-2:#a7a59d;--border:#33322e;
+  --accent:#7aa7ff;--accent-soft:#1d2a44;--ok:#6fcf97;--ok-soft:#173225;--warn:#f0c060;--warn-soft:#3a2e12;
+  --code-bg:#262623;--human:#c49cf2;--human-soft:#2e2340;}}
+:root[data-theme="dark"]{
+  --bg:#141413;--card:#1e1e1c;--text:#ecebe6;--text-2:#a7a59d;--border:#33322e;
+  --accent:#7aa7ff;--accent-soft:#1d2a44;--ok:#6fcf97;--ok-soft:#173225;--warn:#f0c060;--warn-soft:#3a2e12;
+  --code-bg:#262623;--human:#c49cf2;--human-soft:#2e2340;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:30px;line-height:1.2;margin:0 0 8px}
+h2{font-size:21px;margin:0 0 6px}
+p{margin:8px 0}
+a{color:var(--accent)}
+.lead{color:var(--text-2);font-size:17px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:20px 0 28px}
+.fact{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.fact b{display:block;font-size:20px}.fact span{color:var(--text-2);font-size:13.5px}
+.step{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 18px 14px;margin:14px 0;position:relative}
+.num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;margin-right:8px;flex:none}
+.step h2{display:flex;align-items:center}
+.tag{display:inline-block;font-size:12.5px;padding:2px 9px;border-radius:99px;margin:2px 4px 2px 0;font-weight:600}
+.tag.you{background:var(--human-soft);color:var(--human)}.tag.cl{background:var(--accent-soft);color:var(--accent)}
+.tag.gpu{background:var(--warn-soft);color:var(--warn)}
+ul,ol{padding-left:22px;margin:8px 0}li{margin:3px 0}
+code{font-family:var(--mono);font-size:.92em;background:var(--code-bg);padding:1px 5px;border-radius:5px;overflow-wrap:anywhere}
+.prompt{background:var(--code-bg);border:1px solid var(--border);border-radius:10px;margin:10px 0;overflow:hidden}
+.prompt header{display:flex;justify-content:space-between;align-items:center;padding:6px 8px 6px 12px;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-2)}
+.prompt pre{margin:0;padding:12px;white-space:pre-wrap;font:14px/1.5 var(--mono);overflow-wrap:anywhere}
+button.copy{font:600 13px system-ui,sans-serif;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;padding:6px 12px;min-height:34px;cursor:pointer}
+button.copy:active{transform:translateY(1px)}
+.note{border-left:4px solid var(--warn);background:var(--warn-soft);padding:10px 12px;border-radius:0 10px 10px 0;margin:10px 0}
+.good{border-left:4px solid var(--ok);background:var(--ok-soft);padding:10px 12px;border-radius:0 10px 10px 0;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--border);vertical-align:top}
+.tw{overflow-x:auto}
+footer{color:var(--text-2);font-size:13.5px;margin-top:30px}
+</style>
+</head>
+<body>
+<main>
+<h1>Відео з одного промпта</h1>
+<p class="lead">Ви пишете Claude Code тему ролика, а він сам пише сценарій, озвучує його, генерує AI-кліпи й музику на безкоштовному GPU Kaggle, монтує вертикальне відео 9:16 з субтитрами і перевіряє якість. Ваша робота займає ≈15 хвилин: затвердити сценарій, послухати наголоси й музику, дати правки.</p>
+
+<div class="facts">
+  <div class="fact"><b>0 грн</b><span>понад підписку Claude: Kaggle, Edge TTS і Wikimedia Commons безкоштовні</span></div>
+  <div class="fact"><b>≈1 год</b><span>перше налаштування, один раз</span></div>
+  <div class="fact"><b>≈4–8 год GPU</b><span>на ролик 60–100 с (квота Kaggle ≈30 год на тиждень)</span></div>
+  <div class="fact"><b>9:16, 1080p</b><span>Reels, Shorts, TikTok; озвучка українською</span></div>
+</div>
+
+<p><span class="tag you">Ви</span> — дії, які робить людина. <span class="tag cl">Claude</span> — дає промпт, решту Claude Code робить сам. <span class="tag gpu">GPU</span> — витрачає квоту Kaggle.</p>
+
+<section class="step"><h2><span class="num">1</span>Акаунти</h2>
+<span class="tag you">Ви</span>
+<ol>
+  <li><b>GitHub</b> — github.com, звичайний безкоштовний акаунт.</li>
+  <li><b>Claude Code</b> — підписка Claude (Pro або Max) на claude.ai.</li>
+  <li><b>Kaggle</b> — kaggle.com. Обов'язково: <i>Settings → Phone verification</i>. Без підтвердженого телефону ядра Kaggle не мають ні GPU, ні інтернету. Потім <i>Settings → API → Create New Token</i>: завантажиться файл з ключем.</li>
+</ol>
+<p>Решта (Pixabay, Telegram-бот для чернеток, безкоштовні агенти) — за бажанням, див. <code>docs/01-accounts-and-install.md</code>.</p>
+</section>
+
+<section class="step"><h2><span class="num">2</span>Програми</h2>
+<span class="tag you">Ви</span>
+<p>Windows (PowerShell):</p>
+<div class="prompt"><header>PowerShell<button class="copy">Копіювати</button></header><pre>winget install -e --id Anthropic.ClaudeCode; winget install -e --id Git.Git; winget install -e --id Python.Python.3.12</pre></div>
+<p>Linux або macOS: Python ≥ 3.11, git і Claude Code (<code>npm install -g @anthropic-ai/claude-code</code>). Закрийте й знову відкрийте термінал.</p>
+<p>Ключ Kaggle покладіть у теку <code>.kaggle</code> у домашній теці: файл <code>kaggle.json</code> або <code>access_token</code>. <b>Ключ не вставляйте в чат і не комітьте.</b></p>
+</section>
+
+<section class="step"><h2><span class="num">3</span>Забрати рецепт і налаштувати середовище</h2>
+<span class="tag you">Ви</span> <span class="tag cl">Claude</span>
+<div class="prompt"><header>Термінал<button class="copy">Копіювати</button></header><pre>git clone https://github.com/mstekh/prompt-to-video.git
+cd prompt-to-video
+claude</pre></div>
+<p>У Claude Code вставте:</p>
+<div class="prompt"><header>Промпт для Claude: налаштування<button class="copy">Копіювати</button></header><pre>Цей репозиторій — рецепт «один промпт → вертикальне відео». Прочитай README.md, docs/01-accounts-and-install.md і docs/03-step-by-step.md.
+Налаштуй режим 1 (повний конвеєр) на цьому комп'ютері: пакети з pipeline/requirements.txt, Kaggle CLI.
+Ключі й токени я кладу сам — якщо файла бракує, скажи, куди саме його покласти; у чат я їх не вставлятиму.
+Перевір і покажи результат: `kaggle kernels list --mine` працює; ffmpeg знаходиться через imageio-ffmpeg; edge-tts озвучує тестове речення голосом uk-UA-OstapNeural.
+Нічого платного не вмикай, локальних моделей не запускай.
+Наприкінці — таблиця «що готово / що ні / що треба від мене».</pre></div>
+</section>
+
+<section class="step"><h2><span class="num">4</span>Промпт ролика</h2>
+<span class="tag you">Ви</span> <span class="tag cl">Claude</span>
+<p>Заповніть дужки. Що точніше аудиторія й обов'язкові факти, то сильніший текст.</p>
+<div class="prompt"><header>Промпт для Claude: нове відео<button class="copy">Копіювати</button></header><pre>Зроби навчальне відео для Reels/Shorts за рецептом docs/03-step-by-step.md.
+Створи теку проєкту: py pipeline/new_project.py projects/[коротка-назва].
+Тема: [одне речення: про що відео і яке питання воно закриває].
+Аудиторія: [хто дивиться і їхній рівень].
+Мова й голос: українська, упевнений чоловічий голос.
+Настрій музики: [спокійна | тривожна | динамічна].
+Тривалість: до [60–100] с, склейки кожні 2–3 с.
+Обов'язкові факти: [події, дати, назви].
+Чого уникати: [що не говорити й не показувати].
+Візуал: унікальні AI-кліпи під кожен фрагмент; стартові кадри лише з суспільного надбання або CC.
+Спершу покажи сценарій по таймінгах і чекай мого «так».
+Після кліпів обов'язково зроби крок 9б: розкадровка кожного кліпу, прибрати глюки.
+Чернетки — 720p; у кінці — список джерел і ліцензій для опису.</pre></div>
+</section>
+
+<section class="step"><h2><span class="num">5</span>Три короткі затвердження</h2>
+<span class="tag you">Ви</span>
+<ol>
+  <li><b>Сценарій.</b> Claude показує таблицю «час → текст → напис». Відповідаєте «так» або правки. Це найдешевше місце для змін: після кліпів кожна правка коштує годин GPU.</li>
+  <li><b>Наголоси.</b> Слухаєте mp3 озвучки й називаєте слова з неправильним наголосом. Claude додає їх у словник вимови.</li>
+  <li><b>Музика.</b> Слухаєте варіант (≈25 хв GPU на кожен) і кажете «ок» або «інший настрій».</li>
+</ol>
+</section>
+
+<section class="step"><h2><span class="num">6</span>AI-кліпи на Kaggle</h2>
+<span class="tag cl">Claude</span> <span class="tag gpu">GPU</span>
+<p>Для кожного фрагмента Claude шукає стартовий кадр на Wikimedia Commons і «оживлює» його моделлю MiniMax H3 на GPU Kaggle: ≈22 хв на кліп 5 с. 12 кліпів займуть ≈4,5 години; комп'ютер у цей час вільний для інших справ, лише не закривайте Claude Code.</p>
+<div class="note">Квота Kaggle — близько 30 годин GPU на тиждень. Якщо робите кілька роликів, просіть Claude запускати їх по одному.</div>
+</section>
+
+<section class="step"><h2><span class="num">7</span>Розкадровка і прибирання глюків</h2>
+<span class="tag cl">Claude</span>
+<p>AI-кліпи часто виглядають «по-кіношному», а не як у житті. Автоматичні вимірювання таких глюків не бачать, тож кожен кліп розкладається на кадри і переглядається очима: <code>pipeline/clip_sheets.py</code>.</p>
+<ul>
+  <li><b>Фізика техніки:</b> у квадрокоптера немає ракетних прискорювачів, полум'я під дроном означає глюк.</li>
+  <li><b>Розміщення й масштаб:</b> дрони впритул, важка техніка на висоті людини, машини «пливуть» травою.</li>
+  <li><b>Поза сценою:</b> студія чи порожнє тло посеред дії.</li>
+  <li><b>Морфінг і написи:</b> обличчя «пливуть», вежі зникають, з'являються вигадані літери й чужі прапори.</li>
+</ul>
+<div class="prompt"><header>Промпт для Claude: перевірити кліпи (якщо треба окремо)<button class="copy">Копіювати</button></header><pre>Зроби крок 9б рецепту для проєкту projects/[назва]: розклади всі кліпи на кадри (pipeline/clip_sheets.py, потім --detail для кожного),
+переглянь кожен аркуш і знайди нереалістичне: фізику техніки, щільність і масштаб, кадри поза сценою, морфінг, написи.
+Запиши рішення в work/ai_clips/review.md (лишити / обрізати / замінити / перегенерувати і чому).
+Покажи мені аркуші прибраних кліпів і причину одним рядком. Перегенеровуй лише після мого «ок».</pre></div>
+<div class="good">Перевірено на ролику-битві: з 7 кліпів прибрали 3 (ракетне полум'я під коптером, рій впритул, кадр поза битвою). Коротший ролик із 4 правдоподібних кліпів вийшов кращим.</div>
+</section>
+
+<section class="step"><h2><span class="num">8</span>Чернетка, правки, фінал</h2>
+<span class="tag cl">Claude</span> <span class="tag you">Ви</span>
+<p>Claude збирає ролик на Kaggle (≈15 хв, без GPU), автоматично перевіряє розмір, гучність, завмерлі й чорні кадри і показує чернетку 720p. Ви кажете правки, потім Claude робить фінал 1080×1920 і текст опису з джерелами кадрів і позначкою «озвучка синтезована, відео згенеровано ШІ».</p>
+<div class="tw"><table>
+<tr><th>Правка</th><th>Скільки коштує</th></tr>
+<tr><td>Слово з хибним наголосом</td><td>≈20 хв (озвучка + рендер)</td></tr>
+<tr><td>Інша музика</td><td>25 хв GPU + рендер</td></tr>
+<tr><td>Замінити один кліп</td><td>≈22 хв GPU + рендер</td></tr>
+<tr><td>Змінити текст</td><td>озвучка, кліпи змінених кадрів, рендер</td></tr>
+</table></div>
+</section>
+
+<section class="step"><h2><span class="num">?</span>Якщо щось не так</h2>
+<ul>
+  <li><b>Kaggle: «GPU недоступний» або немає інтернету в ядрі</b> — не підтверджено телефон в акаунті.</li>
+  <li><b>Голос ставить наголос не туди</b> — назвіть слово Claude, він додасть написання для озвучки в <code>lexicon.json</code>.</li>
+  <li><b>Кліп не відкривається</b> — Kaggle віддав сторінку помилки замість відео; Claude перезапустить цей кліп.</li>
+  <li><b>Скінчилась квота GPU</b> — нова з'явиться наступного тижня; готові кліпи не пропадають.</li>
+  <li>Всі пастки, на які вже наступили: <code>docs/06-pitfalls.md</code>.</li>
+</ul>
+</section>
+
+<footer>Рецепт і скрипти — <a href="https://github.com/mstekh/prompt-to-video">github.com/mstekh/prompt-to-video</a> (MIT). Детальна інструкція для Claude: <code>docs/03-step-by-step.md</code>. Озвучка — Edge TTS, кліпи — MiniMax H3, музика — ACE-Step, стартові кадри — Wikimedia Commons.</footer>
+</main>
+<script>
+document.querySelectorAll('button.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.closest('.prompt').querySelector('pre').innerText;
+    var done=function(){b.textContent='Скопійовано';setTimeout(function(){b.textContent='Копіювати'},1500)};
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){})}
+  });
+});
+</script>
+</body>
+</html>

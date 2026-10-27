@@ -37,6 +37,8 @@ flowchart LR
 ```
 
 ## З чого почати
+**Покрокова інструкція для людини з готовими промптами (веб-сторінка):** https://raw.githack.com/mstekh/prompt-to-video/main/docs/guide.html
+
 1. **Людині:** прочитайте [docs/01-accounts-and-install.md](docs/01-accounts-and-install.md) (акаунти, Kaggle з верифікацією телефону).
 2. Створіть теку проєкту: `py pipeline/new_project.py projects/my-video` і `cd projects/my-video`.
 3. **Своєму Claude Code:** «Розгорни все за інструкцією `docs/01-accounts-and-install.md`, потім зроби перше відео за `docs/03-step-by-step.md`.»
@@ -47,6 +49,7 @@ flowchart LR
 |---|---|
 | Акаунти, встановлення, режими | [docs/01-accounts-and-install.md](docs/01-accounts-and-install.md) |
 | Промпт і як його покращити | [docs/02-the-prompt.md](docs/02-the-prompt.md) |
+| Інструкція для людини (веб-сторінка) | [docs/guide.html](https://raw.githack.com/mstekh/prompt-to-video/main/docs/guide.html) |
 | **Покрокова інструкція** | [docs/03-step-by-step.md](docs/03-step-by-step.md) |
 | Готові брифи для агентів | [docs/04-agent-briefs.md](docs/04-agent-briefs.md) |
 | Якість і автоперевірка | [docs/05-quality-and-qa.md](docs/05-quality-and-qa.md) |
